@@ -1,9 +1,15 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.EduConnect" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.EduConnect" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/dusty_olive</item>
+        <item name="colorPrimaryDark">@color/green_dark</item>
+        <item name="colorAccent">@color/cotton_candy</item>
+        <item name="android:windowBackground">@color/grey_bg</item>
     </style>
 
-    <style name="Theme.EduConnect" parent="Base.Theme.EduConnect" />
+    <style name="Theme.EduConnect.Splash" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@color/dusty_olive</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>
