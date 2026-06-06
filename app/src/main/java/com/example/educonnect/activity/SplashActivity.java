@@ -6,9 +6,11 @@ import android.os.Handler;
 import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.educonnect.R;
 
 public class SplashActivity extends AppCompatActivity {
+
     private static final int SPLASH_DURATION = 2500;
 
     @Override
@@ -17,6 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }, SPLASH_DURATION);
