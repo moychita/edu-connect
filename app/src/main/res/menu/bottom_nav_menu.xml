@@ -6,4 +6,14 @@
         android:icon="@drawable/ic_home"
         android:title="Beranda" />
 
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Beranda" />
+
+    <item
+        android:id="@+id/bookmarkFragment"
+        android:icon="@drawable/ic_bookmark_nav"
+        android:title="Bookmark" />
+
 </menu>

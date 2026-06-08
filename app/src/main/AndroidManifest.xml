@@ -24,6 +24,12 @@
             android:name=".activity.MainActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.DetailPostActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.MainActivity" />
     </application>
+
+
 
 </manifest>

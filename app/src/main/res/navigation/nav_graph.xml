@@ -10,4 +10,15 @@
         android:name="com.example.educonnect.fragment.HomeFragment"
         android:label="Beranda" />
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.educonnect.fragment.HomeFragment"
+        android:label="Beranda" />
+
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.example.educonnect.fragment.BookmarkFragment"
+        android:label="Bookmark" />
+
 </navigation>
+
