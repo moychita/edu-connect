@@ -19,6 +19,14 @@ public class Post {
     @SerializedName("category")
     private String category;
 
+    public String getCategory() {
+        return category != null ? category : "Info";
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     private boolean isBookmarked = false;
 
     public Post() {}

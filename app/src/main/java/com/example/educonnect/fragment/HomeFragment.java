@@ -87,6 +87,7 @@ public class HomeFragment extends Fragment {
         dbHelper = DatabaseHelper.getInstance(requireContext());
         setupRecyclerView();
         setupCategoryFilter();
+        setupGreeting();
         setupSearch();
         loadPosts();
 
@@ -123,6 +124,7 @@ public class HomeFragment extends Fragment {
         }
     }
 
+
     private void updateChipStyles(String selected) {
         for (int i = 0; i < binding.layoutFilter.getChildCount(); i++) {
             Chip chip = (Chip) binding.layoutFilter.getChildAt(i);
@@ -151,6 +153,22 @@ public class HomeFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+    }
+
+    private void setupGreeting() {
+        int hour = java.util.Calendar.getInstance()
+                .get(java.util.Calendar.HOUR_OF_DAY);
+        String greeting;
+        if (hour >= 5 && hour < 12) {
+            greeting = "☀️ Selamat pagi! Semangat belajar hari ini!";
+        } else if (hour >= 12 && hour < 15) {
+            greeting = "🌤 Selamat siang! Jangan lupa istirahat ya!";
+        } else if (hour >= 15 && hour < 18) {
+            greeting = "🌅 Selamat sore! Ada info akademik baru nih!";
+        } else {
+            greeting = "🌙 Selamat malam! Tetap semangat belajar!";
+        }
+        binding.tvGreeting.setText(greeting);
     }
 
     private void applyFilter() {

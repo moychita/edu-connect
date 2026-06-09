@@ -67,7 +67,7 @@ public class BookmarkFragment extends Fragment {
                     startActivity(intent);
                 },
                 post -> {
-                    // Di halaman bookmark, klik bookmark = hapus
+                    // Di halaman bookmark, klik simpan = hapus
                     executor.execute(() -> {
                         dbHelper.removeBookmark(post.getId());
                         if (getActivity() != null) {
@@ -81,6 +81,12 @@ public class BookmarkFragment extends Fragment {
                             });
                         }
                     });
+                },
+                // Reminder listener — tambahan baru
+                post -> {
+                    Toast.makeText(requireContext(),
+                            "Buka postingan untuk set reminder",
+                            Toast.LENGTH_SHORT).show();
                 }
         );
 
