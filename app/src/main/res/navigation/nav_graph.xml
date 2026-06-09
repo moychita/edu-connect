@@ -11,9 +11,9 @@
         android:label="Beranda" />
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.educonnect.fragment.HomeFragment"
-        android:label="Beranda" />
+        android:id="@+id/communityFragment"
+        android:name="com.example.educonnect.fragment.CommunityFragment"
+        android:label="Komunitas" />
 
     <fragment
         android:id="@+id/bookmarkFragment"
@@ -21,4 +21,3 @@
         android:label="Bookmark" />
 
 </navigation>
-

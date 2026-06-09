@@ -7,9 +7,9 @@
         android:title="Beranda" />
 
     <item
-        android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_home"
-        android:title="Beranda" />
+        android:id="@+id/communityFragment"
+        android:icon="@drawable/ic_community"
+        android:title="Komunitas" />
 
     <item
         android:id="@+id/bookmarkFragment"
