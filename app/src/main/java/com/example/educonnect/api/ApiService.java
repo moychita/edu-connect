@@ -12,15 +12,20 @@ import retrofit2.http.Path;
 
 public interface ApiService {
 
+    // MockAPI — posts
+    // Ganti "post" jika nama resource kamu berbeda
     @GET("posts")
     Call<List<Post>> getPosts();
 
-    @GET("posts/{id}/comments")
-    Call<List<Comment>> getCommentsByPostId(@Path("id") int postId);
-
+    // MockAPI — users
+    // Ganti "user" jika nama resource kamu berbeda
     @GET("users")
     Call<List<User>> getUsers();
 
     @GET("users/{id}")
     Call<User> getUserById(@Path("id") int id);
+
+    // JSONPlaceholder — komentar
+    @GET("posts/{id}/comments")
+    Call<List<Comment>> getCommentsByPostId(@Path("id") int postId);
 }

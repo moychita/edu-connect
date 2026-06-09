@@ -7,9 +7,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
+    // MockAPI untuk posts dan users
+    private static final String MOCKAPI_BASE_URL =
+            "https://6a278b41a84f9d39e908b1db.mockapi.io/educonnect/api/v1/";
+
+    // JSONPlaceholder untuk komentar
+    private static final String JSONPLACEHOLDER_URL =
+            "https://jsonplaceholder.typicode.com/";
+
     private static RetrofitClient instance;
-    private final ApiService apiService;
+    private final ApiService mockApiService;
+    private final ApiService commentApiService;
 
     private RetrofitClient() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -19,13 +27,21 @@ public class RetrofitClient {
                 .addInterceptor(logging)
                 .build();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+        // Retrofit untuk MockAPI (posts + users)
+        mockApiService = new Retrofit.Builder()
+                .baseUrl(MOCKAPI_BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                .build()
+                .create(ApiService.class);
 
-        apiService = retrofit.create(ApiService.class);
+        // Retrofit untuk JSONPlaceholder (komentar)
+        commentApiService = new Retrofit.Builder()
+                .baseUrl(JSONPLACEHOLDER_URL)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiService.class);
     }
 
     public static synchronized RetrofitClient getInstance() {
@@ -35,7 +51,13 @@ public class RetrofitClient {
         return instance;
     }
 
+    // Untuk posts dan users
     public ApiService getApiService() {
-        return apiService;
+        return mockApiService;
+    }
+
+    // Untuk komentar
+    public ApiService getCommentApiService() {
+        return commentApiService;
     }
 }

@@ -3,8 +3,9 @@ package com.example.educonnect.model;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
+
     @SerializedName("id")
-    private int id;
+    private String id;
 
     @SerializedName("name")
     private String name;
@@ -15,24 +16,21 @@ public class User {
     @SerializedName("email")
     private String email;
 
-    @SerializedName("phone")
-    private String phone;
+    @SerializedName("city")
+    private String city;
 
-    @SerializedName("address")
-    private Address address;
-
-    public static class Address {
-        @SerializedName("city")
-        private String city;
-        public String getCity() { return city; }
+    public int getId() {
+        try { return Integer.parseInt(id); }
+        catch (Exception e) { return 0; }
     }
 
-    public int getId() { return id; }
     public String getName() { return name; }
     public String getUsername() { return username; }
     public String getEmail() { return email; }
-    public String getPhone() { return phone; }
+    public String getPhone() { return "-"; }
+
+    // Langsung ambil city, tidak perlu inner class lagi
     public String getCity() {
-        return address != null ? address.getCity() : "-";
+        return city != null ? city : "-";
     }
 }

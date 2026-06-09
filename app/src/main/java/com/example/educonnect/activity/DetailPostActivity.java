@@ -107,7 +107,7 @@ public class DetailPostActivity extends AppCompatActivity {
     private void loadComments() {
         binding.progressComments.setVisibility(View.VISIBLE);
 
-        RetrofitClient.getInstance().getApiService()
+        RetrofitClient.getInstance().getCommentApiService()
                 .getCommentsByPostId(postId)
                 .enqueue(new Callback<List<Comment>>() {
                     @Override
