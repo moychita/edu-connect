@@ -27,7 +27,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MHS-2026"
                 android:textSize="11sp"
                 android:textColor="@color/white"
                 android:background="@drawable/bg_badge_id"
@@ -53,7 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diana Annisah"
+                android:text="Diani"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -63,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="diana@student.unhas.ac.id"
+                android:text="diani@student.unhas.ac.id"
                 android:textSize="13sp"
                 android:textColor="#CCFFFFFF"
                 android:layout_marginBottom="16dp" />
@@ -133,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:text="BOOKMARK"
                         android:textSize="10sp"
-                        android:textColor="@color/grey_text"
+                        android:textColor="@color/white"
                         android:letterSpacing="0.1" />
 
                 </LinearLayout>
@@ -143,32 +142,6 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/grey_bg" />
-
-                <!-- Komentar -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="27"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnSurface" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="KOMENTAR"
-                        android:textSize="10sp"
-                        android:textColor="@color/grey_text"
-                        android:letterSpacing="0.1" />
-
-                </LinearLayout>
 
                 <!-- Divider -->
                 <View
@@ -197,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:text="REMINDER"
                         android:textSize="10sp"
-                        android:textColor="@color/grey_text"
+                        android:textColor="@color/white"
                         android:letterSpacing="0.1" />
 
                 </LinearLayout>
@@ -244,7 +217,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🌙"
                         android:textSize="18sp"
                         android:layout_marginEnd="12dp" />
 
@@ -279,7 +251,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🔔"
                         android:textSize="18sp"
                         android:layout_marginEnd="12dp" />
 
@@ -317,7 +288,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🚪"
                         android:textSize="18sp"
                         android:layout_marginEnd="12dp" />
 
@@ -325,7 +295,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Logout Keluar"
+                        android:text="Logout"
                         android:textSize="15sp"
                         android:textColor="@color/red_cta"
                         android:textStyle="bold" />

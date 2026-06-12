@@ -20,4 +20,9 @@
         android:name="com.example.educonnect.fragment.BookmarkFragment"
         android:label="Bookmark" />
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.educonnect.fragment.ProfileFragment"
+        android:label="Profil" />
+
 </navigation>

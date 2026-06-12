@@ -51,10 +51,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             binding.tvEmail.setText(user.getEmail());
             binding.tvCity.setText("📍 " + user.getCity());
 
-            // Avatar huruf pertama nama
+            // Inisial nama
             String initial = (user.getName() != null && !user.getName().isEmpty())
                     ? String.valueOf(user.getName().charAt(0)).toUpperCase() : "?";
             binding.tvAvatar.setText(initial);
+
+            // Warna avatar bervariasi berdasarkan posisi
+            int[] colors = {
+                    0xFF2D6A4F, 0xFF4361EE, 0xFFF72585,
+                    0xFF7209B7, 0xFF4CC9F0, 0xFFF4845F
+            };
+            int colorIndex = Math.abs(user.getName().hashCode()) % colors.length;
+            binding.tvAvatar.getBackground().setTint(colors[colorIndex]);
         }
     }
 }

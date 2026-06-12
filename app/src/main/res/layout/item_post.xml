@@ -205,53 +205,6 @@
                         android:layout_height="1dp"
                         android:layout_weight="1" />
 
-                    <!-- Like counter -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginEnd="12dp">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/ic_heart"
-                            android:layout_marginEnd="4dp" />
-
-                        <TextView
-                            android:id="@+id/tv_like_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="12sp"
-                            android:textColor="@color/grey_text" />
-
-                    </LinearLayout>
-
-                    <!-- Komentar counter -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/ic_comment"
-                            android:layout_marginEnd="4dp" />
-
-                        <TextView
-                            android:id="@+id/tv_comment_count"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="12sp"
-                            android:textColor="@color/grey_text" />
-
-                    </LinearLayout>
-
                 </LinearLayout>
 
             </LinearLayout>

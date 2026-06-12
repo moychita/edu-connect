@@ -12,11 +12,6 @@
         android:title="Komunitas" />
 
     <!-- Placeholder untuk tombol FAB di tengah -->
-    <item
-        android:id="@+id/placeholder"
-        android:icon="@drawable/ic_add"
-        android:title=""
-        android:enabled="false" />
 
     <item
         android:id="@+id/bookmarkFragment"

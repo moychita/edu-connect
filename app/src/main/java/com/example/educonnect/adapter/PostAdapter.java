@@ -88,14 +88,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             binding.tvBody.setText(post.getBody());
 
             // Avatar — inisial dari nama user
-            String[] userNames = {"Ahmad F.", "Siti R.", "Budi P.",
-                    "Nur A.", "Rizky F."};
+            // Nama user yang lebih natural
+            String[] userNames = {
+                    "Ahmad Fauzi", "Siti Rahmawati", "Budi Prasetyo",
+                    "Nur Aisyah", "Rizky Firmansyah"
+            };
             int userIndex = (post.getUserId() - 1) % userNames.length;
-            binding.tvUserId.setText(userNames[userIndex]);
+            String userName = userNames[userIndex];
+            binding.tvUserId.setText(userName);
 
-            // Inisial avatar
-            String initial = userNames[userIndex].substring(0, 1);
-            binding.tvAvatar.setText(initial);
+// Inisial 2 huruf (contoh: "AF" dari Ahmad Fauzi)
+            String[] parts = userName.split(" ");
+            String initials = parts.length >= 2
+                    ? String.valueOf(parts[0].charAt(0)) + parts[1].charAt(0)
+                    : String.valueOf(parts[0].charAt(0));
+            binding.tvAvatar.setText(initials);
+
+//            // Inisial avatar
+//            String initial = userNames[userIndex].substring(0, 1);
+//            binding.tvAvatar.setText(initial);
 
             // Warna avatar bervariasi
             int avatarColor = AVATAR_COLORS[position % AVATAR_COLORS.length];
@@ -114,14 +125,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
             // Strip warna kiri
             binding.viewCategoryColor.setBackgroundColor(catColor);
-
-            // Like & komentar counter — simulasi
-            int[] likes = {42, 15, 87, 23, 56, 8, 134, 31, 67, 19};
-            int[] comments = {5, 3, 12, 7, 2, 9, 18, 4, 11, 6};
-            binding.tvLikeCount.setText(
-                    String.valueOf(likes[position % likes.length]));
-            binding.tvCommentCount.setText(
-                    String.valueOf(comments[position % comments.length]));
 
             // Status bookmark
             updateBookmarkUI(post.isBookmarked());

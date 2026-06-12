@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import com.example.educonnect.activity.MainActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.educonnect.R;
+
+import com.example.educonnect.utils.ThemeUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -17,6 +18,10 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // ini
+        ThemeUtils.setDarkMode(this, false);
+
         setContentView(R.layout.activity_splash);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {

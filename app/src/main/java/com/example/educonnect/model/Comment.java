@@ -18,6 +18,17 @@ public class Comment {
     @SerializedName("body")
     private String body;
 
+    // ====================================================================
+    // TAMBAHAN BARU: Constructor untuk membuat objek Comment baru
+    // ====================================================================
+    public Comment(int postId, String name, String body) {
+        this.postId = postId;
+        this.name = name;
+        this.body = body;
+        this.email = ""; // Diisi string kosong dulu karena form kita tidak menginput email
+    }
+
+    // Getter bawaan kodemu sebelumnya
     public int getId() { return id; }
     public int getPostId() { return postId; }
     public String getName() { return name; }

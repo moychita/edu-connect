@@ -55,8 +55,10 @@ public class ProfileFragment extends Fragment {
             int bookmarkCount = dbHelper.getAllBookmarks().size();
             if (getActivity() != null) {
                 getActivity().runOnUiThread(() -> {
-                    binding.tvBookmarkCount.setText(
-                            String.valueOf(bookmarkCount));
+                    // KUNCI PERBAIKAN: Berikan proteksi pengecekan null agar tidak crash
+                    if (binding != null) {
+                        binding.tvBookmarkCount.setText(String.valueOf(bookmarkCount));
+                    }
                 });
             }
         });
@@ -66,6 +68,6 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-        executor.shutdown();
+        // KUNCI PERBAIKAN: Jangan mematikan executor di fragment agar thread-nya tetap bisa dipakai ulang saat kembali ke halaman ini
     }
 }

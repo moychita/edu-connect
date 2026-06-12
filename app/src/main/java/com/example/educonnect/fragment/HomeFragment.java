@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -107,15 +108,30 @@ public class HomeFragment extends Fragment {
             chip.setText(cat);
             chip.setCheckable(true);
             chip.setChecked(cat.equals("Semua"));
-            chip.setChipBackgroundColorResource(
-                    cat.equals("Semua") ? R.color.green_primary : R.color.grey_bg);
-            chip.setTextColor(cat.equals("Semua")
-                    ? Color.WHITE
-                    : ContextCompat.getColor(requireContext(), R.color.grey_text));
+
+            // Atur gaya tampilan awal saat pertama kali dimuat
+            if (cat.equals("Semua")) {
+                chip.setChipBackgroundColorResource(R.color.green_primary);
+                chip.setTextColor(Color.WHITE);
+                chip.setChipStrokeWidth(0f);
+            } else {
+                chip.setChipBackgroundColorResource(android.R.color.white);
+                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_text));
+                chip.setChipStrokeColorResource(R.color.grey_text);
+                chip.setChipStrokeWidth(2f);
+            }
+
+            // Atur layout params untuk memberi margin jarak kanan antar chip
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(0, 0, 24, 0); // Jarak kanan sebesar 24 piksel
+            chip.setLayoutParams(params);
 
             chip.setOnClickListener(v -> {
                 selectedCategory = cat;
-                // Update tampilan semua chip
+                // Update tampilan semua chip agar outline tidak hilang saat dipencet
                 updateChipStyles(cat);
                 applyFilter();
             });
@@ -124,16 +140,23 @@ public class HomeFragment extends Fragment {
         }
     }
 
-
     private void updateChipStyles(String selected) {
         for (int i = 0; i < binding.layoutFilter.getChildCount(); i++) {
             Chip chip = (Chip) binding.layoutFilter.getChildAt(i);
             boolean isSelected = chip.getText().toString().equals(selected);
-            chip.setChipBackgroundColorResource(
-                    isSelected ? CATEGORY_COLORS[i] : R.color.grey_bg);
-            chip.setTextColor(isSelected
-                    ? Color.WHITE
-                    : ContextCompat.getColor(requireContext(), R.color.grey_text));
+
+            if (isSelected) {
+                // Saat chip DIPILIH: Gunakan warna kategori penuh & hilangkan stroke
+                chip.setChipBackgroundColorResource(CATEGORY_COLORS[i]);
+                chip.setTextColor(Color.WHITE);
+                chip.setChipStrokeWidth(0f);
+            } else {
+                // Saat chip TIDAK DIPILIH: Tetap paksa tampilkan background putih & outline kotak abu-abu
+                chip.setChipBackgroundColorResource(android.R.color.white);
+                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.grey_text));
+                chip.setChipStrokeColorResource(R.color.grey_text);
+                chip.setChipStrokeWidth(2f);
+            }
         }
     }
 
@@ -211,6 +234,7 @@ public class HomeFragment extends Fragment {
                             post.getBody());
                     intent.putExtra(DetailPostActivity.EXTRA_USER_ID,
                             post.getUserId());
+                    intent.putExtra(DetailPostActivity.EXTRA_CATEGORY, post.getCategory());
                     startActivity(intent);
                 },
                 post -> {
@@ -235,7 +259,7 @@ public class HomeFragment extends Fragment {
                     });
                 },
                 // Klik tombol reminder
-                post -> showReminderDialog(post)
+                this::showReminderDialog
         );
 
         binding.rvPosts.setLayoutManager(
@@ -381,6 +405,6 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-        executor.shutdown();
+//        executor.shutdown();
     }
 }
