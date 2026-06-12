@@ -38,6 +38,10 @@
             android:name=".utils.ReminderReceiver"
             android:exported="false" />
 
+
+<!--        ini buat regis-->
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginActivity" />
     </application>
 
 </manifest>
