@@ -8,12 +8,6 @@
     android:background="@drawable/bg_splash"
     android:padding="40dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🎓"
-        android:textSize="80sp"
-        android:layout_marginBottom="24dp" />
 
     <TextView
         android:layout_width="wrap_content"
