@@ -65,5 +65,4 @@ Aplikasi memanfaatkan library **Retrofit** dengan arsitektur dua *Base URL* berb
 #### C. Sinkronisasi Tema Dinamis (`ThemeUtils`)
 Perpindahan tema memanfaatkan intersep dari status komparasi nilai Boolean di *SharedPreferences*. Ketika *Switch* Dark Mode ditekan, sistem memicu perintah `requireActivity().recreate()` untuk merender ulang seluruh komponen UI agar menyesuaikan *Theme Attribute* (`?attr/...`) yang telah dideklarasikan pada struktur file `themes.xml`.
 
----
-*EduConnect — Dokumentasi Teknis Proyek Final Mobile Programming (Semester 4).*
+
